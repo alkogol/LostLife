@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.application.controllers.TestSceneController"
+            prefHeight="400.0" prefWidth="600.0">
+    <fx:define>
+        <ToggleGroup fx:id="labSizeToggleGroup"/>
+        <ToggleGroup fx:id="cellSizeToggleGroup"/>
+    </fx:define>
+    <VBox>
+        <MenuBar prefWidth="100">
+            <Menu text="File">
+                <items>
+                    <MenuItem text="Restart..." onAction="#restart"></MenuItem>
+                    <MenuItem text="DrawPath"/>
+                </items>
+            </Menu>
+            <Menu text="Property">
+                <items>
+                    <RadioMenuItem text="Set 10 x 10 size" selected="true" toggleGroup="$labSizeToggleGroup">
+                        <properties width="10" height="10">
+                        </properties>
+                    </RadioMenuItem>
+                    <RadioMenuItem text="Set 100 x 100 size" toggleGroup="$labSizeToggleGroup">
+                        <properties width="99" height="99">
+                        </properties>
+                    </RadioMenuItem>
+                    <SeparatorMenuItem></SeparatorMenuItem>
+                    <RadioMenuItem text="Cell Size 10" toggleGroup="$cellSizeToggleGroup" selected="true">
+                        <properties cellSize="10"/>
+                    </RadioMenuItem>
+                    <RadioMenuItem text="Cell Size 20" toggleGroup="$cellSizeToggleGroup">
+                        <properties cellSize="20"></properties>
+                    </RadioMenuItem>
+                </items>
+            </Menu>
+            <Menu text="About">
+                <items>
+                    <MenuItem text="Licence" onAction="#about"/>
+                </items>
+            </Menu>
+        </MenuBar>
+        <ScrollPane fx:id="scrollPane" prefViewportHeight="500" prefViewportWidth="1000" minHeight="500"
+                    fitToHeight="true" fitToWidth="true">
+            <Canvas fx:id="canvas" width="2000" height="2000">
+            </Canvas>
+        </ScrollPane>
+    </VBox>
+
+
+</AnchorPane>
